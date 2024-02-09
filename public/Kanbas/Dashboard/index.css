@@ -1,0 +1,16 @@
+.card {
+  width: 260px;
+}
+
+.row > [class*="col-"] {
+  display: flex;
+  justify-content: center;
+}
+
+.wd-kanbas-navigation + .container {
+  padding-left: 40px;
+}
+
+.card + .card {
+  margin-top: 35px;
+}

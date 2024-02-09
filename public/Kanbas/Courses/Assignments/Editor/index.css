@@ -1,0 +1,81 @@
+.divider {
+  background-color: #ccc;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.btn-success {
+  float: left;
+}
+
+.btn-more {
+  border: none;
+  border: 2px solid #6c757d;
+  background-color: #f5f7f9;
+  color: rgb(84, 84, 84);
+}
+
+.container {
+  max-width: 600px;
+}
+
+.card {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.btn-link {
+  color: #000;
+  text-decoration: none;
+}
+
+.form-check {
+  display: flex;
+  align-items: right;
+}
+
+.form-check-label {
+  margin-left: 0.3rem;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-group-text {
+  border: none;
+  background: none;
+}
+.add-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+.btn-add {
+  background-color: rgb(214, 214, 214);
+  border: none;
+  color: #000;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  margin: 0 auto;
+}
+
+.btn-add:hover,
+.btn-add:focus {
+  text-decoration: underline;
+}
+
+.i {
+  font-style: normal;
+}

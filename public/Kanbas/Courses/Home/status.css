@@ -1,0 +1,167 @@
+.right-sidebar {
+  width: 250px;
+  background-color: white;
+}
+
+.button-container {
+  display: flex;
+  justify-content: start;
+  margin-bottom: 5px;
+}
+
+.sidebar-button,
+.section-title,
+.todo-item,
+.coming-up-section,
+.coming-up-list a,
+.more-items {
+  padding-right: 10px;
+}
+
+.sidebar-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  color: #333;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.sidebar-button i {
+  width: 20px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.sidebar-button:hover {
+  background-color: #e6e6e6;
+}
+
+.sidebar-button.published {
+  background-color: #28a745;
+  color: white;
+}
+
+.sidebar-button.published:hover {
+  background-color: #218838;
+}
+
+.sidebar-button.unpublish {
+  background-color: #999;
+  color: white;
+}
+
+.coming-up-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #999;
+}
+
+.view-calendar-link {
+  position: absolute;
+  color: #dc3545;
+  top: 530px;
+  right: 10px;
+}
+
+.view-calendar-link:hover {
+  text-decoration: underline;
+}
+
+.todo-item:first-of-type,
+.coming-up-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.coming-up-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.coming-up-list a {
+  display: block;
+  color: #dc3545;
+  text-decoration: none;
+  padding: 10px 0;
+}
+
+.todo-link,
+.coming-up-link,
+.more-items-link {
+  color: #dc3545;
+  text-decoration: none;
+  position: relative;
+  display: inline;
+}
+
+.todo-link:hover,
+.coming-up-link:hover,
+.more-items-link:hover {
+  text-decoration: underline;
+}
+
+.todo-icon,
+.coming-up-icon {
+  color: #dc3545;
+}
+
+.more-items {
+  color: #dc3545;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.more-items-link {
+  text-decoration: none;
+}
+
+.more-items-link:hover {
+  border-bottom: 2px solid #dc3545;
+}
+
+.view-calendar-link {
+  margin-left: auto;
+  color: #dc3545;
+  text-decoration: none;
+}
+
+.view-calendar-link:hover {
+  text-decoration: underline;
+}
+
+.section-title {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-divider {
+  background-color: #ccc;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.todo-title,
+.coming-up-title {
+  flex-grow: 1;
+}
