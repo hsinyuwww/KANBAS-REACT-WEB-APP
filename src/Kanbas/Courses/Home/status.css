@@ -1,0 +1,79 @@
+.sidebar-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  color: #333;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.sidebar-button i {
+  width: 20px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.sidebar-button:hover {
+  background-color: #e6e6e6;
+}
+
+.todo-link {
+  color: #dc3545;
+  text-decoration: none;
+  position: relative;
+  display: inline;
+}
+
+.todo-link:hover {
+  text-decoration: underline;
+}
+
+.section-title {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-divider {
+  background-color: #ccc;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.to-do-list {
+  margin-top: 20px;
+}
+
+.to-do-list .to-do-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.todo-icon {
+  font-size: 1.5rem;
+  color: red;
+  margin-right: 1rem;
+}
+
+.todo-due {
+  list-style-type: none;
+  font-size: smaller;
+  padding-left: 0;
+}
+
+.todo-false-icon {
+  margin-left: auto;
+}
+
+.todo-link {
+  color: #dc3545;
+}

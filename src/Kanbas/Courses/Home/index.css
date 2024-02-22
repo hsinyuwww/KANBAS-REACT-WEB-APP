@@ -1,0 +1,14 @@
+.home-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.module-list-container {
+  flex-grow: 1;
+}
+
+.status-container {
+  width: 250px;
+  flex-shrink: 0;
+}

@@ -66,16 +66,13 @@ html {
 }
 
 .second-column {
-  /* Set the width or flex-basis for the second column */
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  width: 100%; /* Adjust width as necessary */
+  flex-direction: column;
+  width: 100%;
 }
 
 .breadcrumb-container {
-  /* Style your breadcrumb container */
   display: flex;
-  justify-content: space-between; /* Align breadcrumb and student view link on the same line */
+  justify-content: space-between;
   align-items: center;
-  /* Add padding, margins, background, etc. */
 }

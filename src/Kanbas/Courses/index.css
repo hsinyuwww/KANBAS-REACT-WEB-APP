@@ -1,0 +1,56 @@
+.course-header {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #d3d3d3;
+  padding: 10px;
+}
+
+.menu_icon {
+  margin-right: 10px;
+  font-size: 1.5rem;
+  color: rgb(159, 37, 37);
+  margin: 0;
+}
+
+.course-header .breadcrumb {
+  display: inline;
+  margin-left: 10px;
+  font-size: 1.3rem;
+  color: rgb(176, 41, 41);
+}
+
+.course-header .breadcrumb .breadcrumb-link {
+  text-decoration: none;
+  color: rgb(47, 47, 87);
+}
+
+.course-header .breadcrumb .breadcrumb-link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  color: rgb(47, 47, 87);
+  margin: 0 5px;
+}
+
+.breadcrumb-home {
+  color: rgb(47, 47, 87);
+}
+
+.student-view-button {
+  padding: 5px 5px;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.student-view-button:hover {
+  background-color: #e6e6e6;
+}
+
+.student-view-button svg {
+  margin-right: 5px;
+}

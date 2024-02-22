@@ -1,0 +1,18 @@
+import React from "react";
+import TodoItem from "./TodoItem";
+import todos from "./todos.json";
+
+function TodoList() {
+  return (
+    <>
+      <h3>Todo List</h3>
+      <ul className="list-group">
+        {todos.map((todo, index) => (
+          <TodoItem key={index} todo={todo} />
+        ))}
+      </ul>
+    </>
+  );
+}
+
+export default TodoList;

@@ -1,0 +1,133 @@
+.section-divider {
+  background-color: #ccc;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.d-flex {
+  display: flex;
+}
+
+.wd-modules,
+.wd-modules * {
+  border-radius: 0%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.wd-modules {
+  margin: 5px;
+}
+
+.wd-modules > li {
+  background-color: lightgray;
+  border: 1px solid gray;
+}
+
+.wd-modules > li > div {
+  padding: 15px;
+}
+
+.wd-modules > li > ul > li {
+  padding: 5px;
+  border-top: 1px solid gray !important;
+  border-left: 2px solid green;
+}
+
+.wd-modules > li {
+  margin-bottom: 20px;
+}
+
+.wd-modules .list-group-item > ul > .list-group-item .text-content {
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.wd-modules .list-group-item .text-red {
+  color: #dc143c;
+  text-decoration: none;
+}
+
+.wd-modules .list-group-item .text-red:hover {
+  text-decoration: underline;
+}
+
+.wd-modules .list-group-item .fa-link {
+  color: grey;
+  margin-left: 10px;
+}
+
+.wd-modules .list-group-item .fa-external-link {
+  color: #dc143c;
+  margin-left: 30px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 5px;
+}
+
+.select-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.select-with-icon .fa {
+  position: absolute;
+  left: 10px;
+}
+
+.select-with-icon select {
+  padding-left: 30px;
+}
+.divider {
+  border-top: 1px solid #cccccc;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.col-auto {
+  margin: 15px;
+}
+
+.btn-round {
+  font-size: 0.8rem;
+  border: none;
+  border: 2px solid #6c757d;
+  background-color: #f5f7f9;
+  color: rgb(84, 84, 84);
+  border-radius: 20px;
+}
+
+.btn-more {
+  border: none;
+  border: 2px solid #6c757d;
+  background-color: #f5f7f9;
+  color: rgb(84, 84, 84);
+}
+
+.assignment-title {
+  font-weight: bold;
+  font-size: 1rem;
+}
+.assignment-detail {
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+.fa-pencil-square-o {
+  color: green;
+}
+
+.fa-check-circle {
+  color: #198754;
+}
+
+.btn-secondary {
+  background-color: #f5f7f9;
+  color: rgb(84, 84, 84);
+}
+
+.note-icon {
+  color: green;
+}

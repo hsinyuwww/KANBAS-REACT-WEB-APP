@@ -1,0 +1,57 @@
+.grade-title {
+  color: rgb(186, 20, 20);
+}
+
+.btn-outline-secondary {
+  gap: 10px;
+}
+.gradebook-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grade-title {
+  margin-bottom: 0;
+}
+
+.gradebook-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.table th,
+.table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table-responsive {
+  margin-bottom: 20px;
+}
+.search-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-column {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.search-column:last-child {
+  margin-right: 0;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group .dropdown-toggle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}

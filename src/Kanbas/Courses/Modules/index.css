@@ -1,0 +1,88 @@
+.wd-modules,
+.wd-modules * {
+  border-radius: 0%;
+  border: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.wd-modules {
+  margin: 5px;
+}
+
+.wd-modules > li {
+  background-color: lightgray;
+  border: 1px solid rgb(213, 210, 210);
+}
+
+.wd-modules > li > div {
+  padding: 5px;
+}
+
+.wd-modules > li > ul > li {
+  padding: 10px;
+  border-top: 1px solid gray !important;
+  border-left: 3px solid green;
+}
+
+.wd-modules > li {
+  margin-bottom: 20px;
+}
+
+.wd-modules .list-group-item > ul > .list-group-item .text-content {
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.wd-modules .list-group-item .text-red {
+  color: #dc143c;
+  text-decoration: none;
+}
+
+.wd-modules .list-group-item .text-red:hover {
+  text-decoration: underline;
+}
+
+.wd-modules .list-group-item .fa-link {
+  color: grey;
+  margin-left: 20px;
+}
+
+.wd-modules .list-group-item .fa-external-link {
+  color: #dc143c;
+  margin-left: 5px;
+}
+
+.bttn {
+  padding: 5px 15px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.select-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 0;
+}
+
+.select-with-icon .fa {
+  position: absolute;
+  left: 10px;
+}
+
+.select-with-icon select {
+  padding-left: 20px;
+}
+
+.divider {
+  border-top: 1px solid #cccccc;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.section-divider {
+  background-color: #ccc;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
