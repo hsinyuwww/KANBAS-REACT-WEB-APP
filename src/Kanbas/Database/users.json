@@ -88,5 +88,55 @@
     "email": "legolas@mirkwood.com",
     "dob": "2879-07-15",
     "role": "FACULTY"
+  },
+  {
+    "_id": "130",
+    "username": "scarlet_witch",
+    "password": "maximoff123",
+    "firstName": "Wanda",
+    "lastName": "Maximoff",
+    "email": "wanda@avengers.com",
+    "dob": "1989-02-10",
+    "role": "STUDENT"
+  },
+  {
+    "_id": "131",
+    "username": "visionary",
+    "password": "vision123",
+    "firstName": "Vision",
+    "lastName": "Shade",
+    "email": "vision@avengers.com",
+    "dob": "1990-03-13",
+    "role": "STUDENT"
+  },
+  {
+    "_id": "132",
+    "username": "quicksilver",
+    "password": "pietro123",
+    "firstName": "Pietro",
+    "lastName": "Maximoff",
+    "email": "pietro@avengers.com",
+    "dob": "1989-02-10",
+    "role": "STUDENT"
+  },
+  {
+    "_id": "133",
+    "username": "hawkeye",
+    "password": "barton123",
+    "firstName": "Clint",
+    "lastName": "Barton",
+    "email": "clint@avengers.com",
+    "dob": "1971-01-07",
+    "role": "STUDENT"
+  },
+  {
+    "_id": "134",
+    "username": "falcon",
+    "password": "wilson123",
+    "firstName": "Sam",
+    "lastName": "Wilson",
+    "email": "sam@avengers.com",
+    "dob": "1982-09-23",
+    "role": "STUDENT"
   }
 ]
