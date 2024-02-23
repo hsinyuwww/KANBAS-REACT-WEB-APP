@@ -19,16 +19,29 @@
   display: flex;
   gap: 10px;
 }
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
 
 .table th,
 .table td {
-  text-align: center;
-  vertical-align: middle;
+  text-align: left;
+  padding: 12px 15px;
+  border-right: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+  font-size: 0.9em;
 }
 
-.table-responsive {
-  margin-bottom: 20px;
+.table th {
+  background-color: #f8f9fa;
+  font-weight: 500;
+  border-top: 1px solid #dddddd;
 }
+
 .search-container {
   display: flex;
   justify-content: space-between;
