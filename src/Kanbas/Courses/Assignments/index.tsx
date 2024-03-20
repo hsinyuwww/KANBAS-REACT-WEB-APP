@@ -53,7 +53,7 @@ function Assignments() {
           <button
             className="btn btn-danger me-2"
             onClick={() =>
-              navigate(`/Kanbas/Courses/${courseId}/Assignments/Editor`)
+              navigate(`/Kanbas/Courses/${courseId}/Assignments/new`)
             }
           >
             <FaPlus className="me-1" />
@@ -90,6 +90,12 @@ function Assignments() {
                 <span className="float-end">
                   <FaCheckCircle className="text-success" />
                   <FaEllipsisV className="ms-2" />
+                  <button
+                    onClick={() => handleDelete(assignment._id)}
+                    className="btn btn-danger btn-sm ms-2"
+                  >
+                    Delete
+                  </button>
                 </span>
               </li>
             ))}

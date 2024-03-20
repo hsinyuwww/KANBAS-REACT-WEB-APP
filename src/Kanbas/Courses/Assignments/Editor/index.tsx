@@ -27,6 +27,7 @@ function AssignmentEditor() {
   const assignments = useSelector(
     (state: RootState) => state.assignments.assignments
   );
+
   const editingAssignment = useSelector((state: RootState) =>
     assignmentId !== "new"
       ? state.assignments.assignments.find((a: any) => a._id === assignmentId)
@@ -56,20 +57,17 @@ function AssignmentEditor() {
   }, [editingAssignment]);
 
   const handleSave = () => {
-    const assignmentToSave: Assignment = {
-      ...assignment,
-      _id:
-        assignmentId === "new"
-          ? new Date().getTime().toString()
-          : assignment._id,
-    };
-
     if (assignmentId === "new") {
-      dispatch(addAssignment(assignmentToSave));
+      const newAssignmentWithId = {
+        ...assignment,
+        _id: Date.now().toString(),
+      };
+      dispatch(addAssignment(newAssignmentWithId));
+      navigate(`/Kanbas/Courses/${courseId}/Assignments`);
     } else {
-      dispatch(updateAssignment(assignmentToSave));
+      dispatch(updateAssignment(assignment));
+      navigate(`/Kanbas/Courses/${courseId}/Assignments`);
     }
-    navigate(`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`);
   };
 
   const handleChange = (
@@ -131,56 +129,56 @@ function AssignmentEditor() {
               placeholder="New Assignment Description"
             />
           </div>
+
+          <div className="form-group">
+            <label htmlFor="points">Points</label>
+            <input
+              type="number"
+              name="points"
+              value={assignment.points.toString()}
+              onChange={handleChange}
+              className="form-control mb-2"
+              placeholder="Points"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="dueDate">Due</label>
+            <input
+              type="date"
+              name="dueDate"
+              value={assignment.dueDate}
+              onChange={handleChange}
+              className="form-control mb-2"
+              placeholder="Due Date"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="availableFromDate">Available from</label>
+            <input
+              type="date"
+              name="availableFromDate"
+              value={assignment.availableFromDate}
+              onChange={handleChange}
+              className="form-control mb-2"
+              placeholder="Available From Date"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="availableUntilDate">Until</label>
+            <input
+              type="date"
+              name="availableUntilDate"
+              value={assignment.availableUntilDate}
+              onChange={handleChange}
+              className="form-control mb-2"
+              placeholder="Available Until Date"
+            />
+          </div>
         </>
       )}
-
-      <div className="form-group">
-        <label htmlFor="points">Points</label>
-        <input
-          type="number"
-          name="points"
-          value={assignment.points.toString()}
-          onChange={handleChange}
-          className="form-control mb-2"
-          placeholder="Points"
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="dueDate">Due</label>
-        <input
-          type="date"
-          name="dueDate"
-          value={assignment.dueDate}
-          onChange={handleChange}
-          className="form-control mb-2"
-          placeholder="Due Date"
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="availableFromDate">Available from</label>
-        <input
-          type="date"
-          name="availableFromDate"
-          value={assignment.availableFromDate}
-          onChange={handleChange}
-          className="form-control mb-2"
-          placeholder="Available From Date"
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="availableUntilDate">Until</label>
-        <input
-          type="date"
-          name="availableUntilDate"
-          value={assignment.availableUntilDate}
-          onChange={handleChange}
-          className="form-control mb-2"
-          placeholder="Available Until Date"
-        />
-      </div>
 
       <div className="d-flex justify-content-end">
         <button onClick={handleSave} className="btn btn-success">
