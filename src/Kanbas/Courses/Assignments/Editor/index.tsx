@@ -78,53 +78,61 @@ function AssignmentEditor() {
     const { name, value } = event.target;
     setAssignment((prev) => ({ ...prev, [name]: value }));
   };
+  const isEditing = assignmentId !== "new";
 
   return (
     <div className="assignment-editor-container">
-      <div className="status-bar d-flex justify-content-end">
-        <FaCheckCircle className="text-success me-2" />
-        <span>Published</span>
-        <button className="btn btn-light ms-2">
-          <FaEllipsisV />
-        </button>
-      </div>
-      <hr className="section-divider" />
-      <h5>Assignment Name</h5>
-      <input
-        name="title"
-        value={assignment?.title}
-        onChange={handleChange}
-        className="form-control mb-2"
-        placeholder="Assignment Title"
-      />
-      <textarea
-        name="description"
-        value={assignment?.description}
-        onChange={handleChange}
-        className="form-control mb-2"
-        placeholder="Assignment Description"
-      />
-      <div className="form-group">
-        <label htmlFor="title">Assignment Name</label>
-        <input
-          name="title"
-          value={assignment.title}
-          onChange={handleChange}
-          className="form-control mb-2"
-          placeholder="New Assignment Title"
-        />
-      </div>
+      {isEditing ? (
+        <>
+          <div className="status-bar d-flex justify-content-end">
+            <FaCheckCircle className="text-success me-2" />
+            <span>Published</span>
+            <button className="btn btn-light ms-2">
+              <FaEllipsisV />
+            </button>
+          </div>
+          <hr className="section-divider" />
+          <h5>Assignment Name</h5>
+          <input
+            name="title"
+            value={assignment?.title}
+            onChange={handleChange}
+            className="form-control mb-2"
+            placeholder="Assignment Title"
+          />
+          <textarea
+            name="description"
+            value={assignment?.description}
+            onChange={handleChange}
+            className="form-control mb-2"
+            placeholder="Assignment Description"
+          />
+        </>
+      ) : (
+        <>
+          <div className="form-group">
+            <label htmlFor="title">Assignment Name</label>
+            <input
+              name="title"
+              value={assignment.title}
+              onChange={handleChange}
+              className="form-control mb-2"
+              placeholder="New Assignment Title"
+            />
+          </div>
 
-      <div className="form-group">
-        <label htmlFor="description">Assignment Description</label>
-        <textarea
-          name="description"
-          value={assignment.description}
-          onChange={handleChange}
-          className="form-control mb-2"
-          placeholder="New Assignment Description"
-        />
-      </div>
+          <div className="form-group">
+            <label htmlFor="description">Assignment Description</label>
+            <textarea
+              name="description"
+              value={assignment.description}
+              onChange={handleChange}
+              className="form-control mb-2"
+              placeholder="New Assignment Description"
+            />
+          </div>
+        </>
+      )}
 
       <div className="form-group">
         <label htmlFor="points">Points</label>
