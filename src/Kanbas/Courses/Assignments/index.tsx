@@ -9,15 +9,33 @@ import {
 } from "react-icons/fa";
 import { RxDragHandleDots2 } from "react-icons/rx";
 import { PiNotePencilBold } from "react-icons/pi";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import assignments from "../../Database/assignments.json";
 import "./index.css";
+import { useSelector, useDispatch } from "react-redux";
+import { deleteAssignment } from "./assignmentsReducer";
+import { RootState } from "../../store";
 
 function Assignments() {
   const { courseId } = useParams();
-  const assignmentList = assignments.filter(
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const assignments = useSelector((state: RootState) => state.assignments);
+  const assignmentsArray = useSelector(
+    (state: RootState) => state.assignments.assignments
+  );
+  const assignmentList = assignmentsArray.filter(
     (assignment) => assignment.course === courseId
   );
+  const handleDelete = (assignmentId: string) => {
+    if (window.confirm("Are you sure you want to delete this assignment?")) {
+      dispatch(deleteAssignment(assignmentId));
+    }
+  };
+  const handleAddAssignment = () => {
+    navigate(`/Kanbas/Courses/${courseId}/Assignments/Editor`);
+  };
+
   return (
     <>
       <div className="d-flex justify-content-between align-items-center mb-3">
@@ -32,7 +50,12 @@ function Assignments() {
             <FaPlus className="me-1" />
             Group
           </button>
-          <button className="btn btn-danger me-2">
+          <button
+            className="btn btn-danger me-2"
+            onClick={() =>
+              navigate(`/Kanbas/Courses/${courseId}/Assignments/Editor`)
+            }
+          >
             <FaPlus className="me-1" />
             Assignment
           </button>
@@ -56,7 +79,7 @@ function Assignments() {
 
           <ul className="list-group">
             {assignmentList.map((assignment) => (
-              <li className="list-group-item">
+              <li className="list-group-item" key={assignment._id}>
                 <RxDragHandleDots2 className="me-2" />
                 <PiNotePencilBold className="note-icon" />
                 <Link

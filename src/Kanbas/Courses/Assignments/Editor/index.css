@@ -1,5 +1,54 @@
-.section-divider {
-  background-color: #ccc;
-  margin-top: 10px;
+.assignment-editor-container {
+  max-width: 550px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.assignment-editor-container input[type="text"],
+.assignment-editor-container input[type="number"],
+.assignment-editor-container input[type="date"],
+.assignment-editor-container textarea {
+  width: 100%;
+  padding: 10px;
   margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.assignment-editor-container textarea {
+  height: 100px;
+}
+
+.assignment-editor-container .btn {
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+.assignment-editor-container .btn-success {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+}
+
+.assignment-editor-container .btn-danger {
+  background-color: #f44336;
+  color: white;
+  border: none;
+}
+
+.d-flex:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  flex: 0 0 150px;
+  margin-right: 10px;
 }

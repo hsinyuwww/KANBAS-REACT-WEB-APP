@@ -81,8 +81,85 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
 .section-divider {
   background-color: #ccc;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.add-module-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.module-name-input,
+.module-description-text {
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+add-module-btn {
+  padding: 10px 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.add-module-btn:hover {
+  background-color: #45a049;
+}
+
+.module-info {
+  margin-bottom: 15px;
+}
+
+.module-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.module-description {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.module-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.module-id {
+  font-weight: bold;
+}
+
+.delete-module-btn {
+  margin-left: auto;
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  align-self: start;
+}
+
+.delete-module-btn:hover {
+  background-color: #c82333;
+}
+
+.edit-module-btn {
+  background-color: #1b7908;
+  color: #fefefe;
+  border: 1px solid #ccc;
+}
+
+.module-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
 }
