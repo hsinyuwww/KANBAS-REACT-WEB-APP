@@ -1,16 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import courses from "../Database/courses.json";
+import courses from "../Database/courses";
 import db from "../Database";
-
-interface DashboardProps {
-  courses: any[];
-  course: any;
-  setCourse: (course: any) => void;
-  addNewCourse: () => void;
-  deleteCourse: (courseId: any) => void;
-  updateCourse: (course: any) => void;
-}
 
 function Dashboard({
   courses,
@@ -19,7 +10,14 @@ function Dashboard({
   addNewCourse,
   deleteCourse,
   updateCourse,
-}: DashboardProps) {
+}: {
+  courses: any[];
+  course: any;
+  setCourse: (course: any) => void;
+  addNewCourse: () => void;
+  deleteCourse: (course: any) => void;
+  updateCourse: () => void;
+}) {
   return (
     <div className="p-4">
       <h1>Dashboard</h1> <hr />
@@ -46,8 +44,12 @@ function Dashboard({
         type="date"
         onChange={(e) => setCourse({ ...course, endDate: e.target.value })}
       />
-      <button onClick={addNewCourse}>Add</button>
-      <button onClick={updateCourse}>Update</button>
+      <button className="btn btn-success" onClick={addNewCourse}>
+        Add
+      </button>
+      <button className="btn btn-primary" onClick={updateCourse}>
+        Update
+      </button>
       <h2>Published Courses ({courses.length})</h2> <hr />
       <div className="row">
         <div className="row row-cols-1 row-cols-md-5 g-4">
@@ -71,6 +73,7 @@ function Dashboard({
                   >
                     {course.name}{" "}
                     <button
+                      className="btn btn-warning"
                       onClick={(event) => {
                         event.preventDefault();
                         setCourse(course);
@@ -79,6 +82,7 @@ function Dashboard({
                       Edit
                     </button>
                     <button
+                      className="btn btn-danger"
                       onClick={(event) => {
                         event.preventDefault();
                         deleteCourse(course._id);

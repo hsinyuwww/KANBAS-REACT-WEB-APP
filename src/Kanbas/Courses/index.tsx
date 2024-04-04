@@ -1,5 +1,5 @@
 import React from "react";
-import courses from "../Database/courses.json";
+import courses from "../Database/courses";
 import {
   Navigate,
   Route,
@@ -17,18 +17,32 @@ import { FaGlasses } from "react-icons/fa";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import Grades from "./Grades";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-function Courses({ courses }: { courses: any[] }) {
+function Courses() {
   const { courseId } = useParams();
-  const location = useLocation();
-  const course = courses.find((course) => course._id === courseId);
+  const COURSES_API = "http://localhost:4000/api/courses";
+  const [course, setCourse] = useState<any>({ _id: "" });
+  const location = useLocation(); // Import useLocation hook
+
+  // Function to fetch course data by ID
+  const findCourseById = async (courseId?: string) => {
+    const response = await axios.get(`${COURSES_API}/${courseId}`);
+    setCourse(response.data);
+  };
+
+  useEffect(() => {
+    if (courseId) {
+      findCourseById(courseId);
+    }
+  }, [courseId]);
 
   // Breadcrumb Logic
   const pathSections = location.pathname.split("/").filter((x) => x);
   const routeName = pathSections[pathSections.length - 1] || "Home";
   const capitalizedRouteName =
     routeName.charAt(0).toUpperCase() + routeName.slice(1);
-
   return (
     <div>
       <div className="course-header">

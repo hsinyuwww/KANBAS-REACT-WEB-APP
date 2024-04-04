@@ -9,10 +9,10 @@ import {
   FaFileImport,
 } from "react-icons/fa";
 import { BsSearch } from "react-icons/bs";
-import assignments from "../../Database/assignments.json";
-import enrollments from "../../Database/enrollments.json";
-import grades from "../../Database/grades.json";
-import users from "../../Database/users.json";
+import assignments from "../../Database/assignments";
+import enrollments from "../../Database/enrollments";
+import grades from "../../Database/grades";
+import users from "../../Database/users";
 import { useParams } from "react-router-dom";
 import "./index.css";
 

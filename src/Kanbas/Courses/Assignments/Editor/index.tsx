@@ -1,195 +1,113 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { FaCheckCircle, FaEllipsisV } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../store";
-import { addAssignment, updateAssignment } from "../assignmentsReducer";
+import db from "../../../Database";
 import "./index.css";
-
-interface Assignment {
-  _id: string;
-  title: string;
-  description: string;
-  points: number;
-  dueDate?: string;
-  availableFromDate?: string;
-  availableUntilDate?: string;
-  course: string;
-}
+import { BiDotsVerticalRounded } from "react-icons/bi";
+import { AiFillCheckCircle } from "react-icons/ai";
+import { useSelector, useDispatch } from "react-redux";
+import { addAssignment, setAssignment, updateAssignment } from "../reducer";
+import { KanbasState } from "../../../store";
+import * as client from "../client";
 
 function AssignmentEditor() {
-  const { assignmentId, courseId } = useParams<{
-    assignmentId: string;
-    courseId: string;
-  }>();
-  const navigate = useNavigate();
+  const { assignmentId, courseId } = useParams();
   const dispatch = useDispatch();
-  const assignments = useSelector(
-    (state: RootState) => state.assignments.assignments
+  const navigate = useNavigate();
+  const assignment = useSelector(
+    (state: KanbasState) => state.assignmentsReducer.assignment
   );
 
-  const editingAssignment = useSelector((state: RootState) =>
-    assignmentId !== "new"
-      ? state.assignments.assignments.find((a: any) => a._id === assignmentId)
-      : null
-  );
+  const handleSave = async () => {
+    console.log("assignmentId:", assignmentId);
 
-  const [assignment, setAssignment] = useState<Assignment>({
-    _id: "",
-    title: "",
-    description: "",
-    points: 100,
-    dueDate: "",
-    availableFromDate: "",
-    availableUntilDate: "",
-    course: courseId || "",
-  });
-
-  useEffect(() => {
-    if (editingAssignment) {
-      const updatedAssignment: Assignment = {
-        ...editingAssignment,
-        description: editingAssignment.description || "",
-        points: editingAssignment.points || 100,
-      };
-      setAssignment(updatedAssignment);
+    if (!assignmentId || !assignment) {
+      console.error("Assignment ID or assignment data is missing");
+      return;
     }
-  }, [editingAssignment]);
-
-  const handleSave = () => {
-    if (assignmentId === "new") {
-      const newAssignmentWithId = {
-        ...assignment,
-        _id: Date.now().toString(),
-      };
-      dispatch(addAssignment(newAssignmentWithId));
+    console.log("Saving assignment with ID:", assignmentId);
+    console.log("Assignment data:", assignment);
+    try {
+      const updatedAssignment = await client.updateAssignment(
+        assignmentId,
+        assignment
+      );
+      console.log("Updated assignment response:", updatedAssignment);
+      dispatch(updateAssignment(updatedAssignment));
       navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-    } else {
-      dispatch(updateAssignment(assignment));
-      navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+    } catch (error) {
+      console.error("Error updating assignment:", error);
     }
   };
-
-  const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = event.target;
-    setAssignment((prev) => ({ ...prev, [name]: value }));
-  };
-  const isEditing = assignmentId !== "new";
 
   return (
-    <div className="assignment-editor-container">
-      {isEditing ? (
-        <>
-          <div className="status-bar d-flex justify-content-end">
-            <FaCheckCircle className="text-success me-2" />
-            <span>Published</span>
-            <button className="btn btn-light ms-2">
-              <FaEllipsisV />
-            </button>
-          </div>
-          <hr className="section-divider" />
-          <h5>Assignment Name</h5>
-          <input
-            name="title"
-            value={assignment?.title}
-            onChange={handleChange}
-            className="form-control mb-2"
-            placeholder="Assignment Title"
-          />
-          <textarea
-            name="description"
-            value={assignment?.description}
-            onChange={handleChange}
-            className="form-control mb-2"
-            placeholder="Assignment Description"
-          />
-        </>
-      ) : (
-        <>
-          <div className="form-group">
-            <label htmlFor="title">Assignment Name</label>
-            <input
-              name="title"
-              value={assignment.title}
-              onChange={handleChange}
-              className="form-control mb-2"
-              placeholder="New Assignment Title"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="description">Assignment Description</label>
-            <textarea
-              name="description"
-              value={assignment.description}
-              onChange={handleChange}
-              className="form-control mb-2"
-              placeholder="New Assignment Description"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="points">Points</label>
-            <input
-              type="number"
-              name="points"
-              value={assignment.points.toString()}
-              onChange={handleChange}
-              className="form-control mb-2"
-              placeholder="Points"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="dueDate">Due</label>
-            <input
-              type="date"
-              name="dueDate"
-              value={assignment.dueDate}
-              onChange={handleChange}
-              className="form-control mb-2"
-              placeholder="Due Date"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="availableFromDate">Available from</label>
-            <input
-              type="date"
-              name="availableFromDate"
-              value={assignment.availableFromDate}
-              onChange={handleChange}
-              className="form-control mb-2"
-              placeholder="Available From Date"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="availableUntilDate">Until</label>
-            <input
-              type="date"
-              name="availableUntilDate"
-              value={assignment.availableUntilDate}
-              onChange={handleChange}
-              className="form-control mb-2"
-              placeholder="Available Until Date"
-            />
-          </div>
-        </>
-      )}
-
-      <div className="d-flex justify-content-end">
-        <button onClick={handleSave} className="btn btn-success">
-          Save
+    <div className="wd-flex-row-container">
+      <div className="wd-flex">
+        <button className="gray-button" disabled>
+          <AiFillCheckCircle />
+          Published
         </button>
-        <Link
-          to={`/Kanbas/Courses/${courseId}/Assignments`}
-          className="btn btn-danger ms-2"
-        >
-          Cancel
-        </Link>
+        <button className="gray-button">
+          <BiDotsVerticalRounded />
+        </button>
+      </div>
+      <hr />
+      <div className="assignment">
+        <b>Assignment Name</b>
+
+        <input
+          value={assignment?.title}
+          className="form-control mb-2"
+          onChange={(e) =>
+            dispatch(setAssignment({ ...assignment, title: e.target.value }))
+          }
+        />
+        <textarea
+          className="form-control"
+          value={assignment?.description}
+          onChange={(e) =>
+            dispatch(
+              setAssignment({ ...assignment, description: e.target.value })
+            )
+          }
+        ></textarea>
+        <br />
+        <div className="wd-flex1">
+          <b>Points</b>
+          <input value={assignment.points} className="form-control"></input>
+        </div>
+        <div className="wd-flex1">
+          <b>Assign</b>
+          <div className="form-control">
+            Due
+            <input className="form-control date w-50" type="date" />
+            <table>
+              <tbody>
+                <tr>
+                  <td>Available from</td>
+                  <td>Until</td>
+                </tr>
+                <tr>
+                  <td>
+                    <input className="form-control date" type="date" />
+                  </td>
+                  <td>
+                    <input className="form-control date" type="date" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <hr />
+        <div className="wd-flex">
+          <Link to={`/Kanbas/Courses/${courseId}/Assignments`} className="btn">
+            Cancel
+          </Link>
+          <button onClick={handleSave} className="btn btn-danger">
+            Save
+          </button>
+        </div>
       </div>
     </div>
   );
