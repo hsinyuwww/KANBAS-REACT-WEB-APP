@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import db from "../../../Database";
 import "./index.css";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { AiFillCheckCircle } from "react-icons/ai";

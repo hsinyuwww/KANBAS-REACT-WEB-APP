@@ -6,7 +6,6 @@ export const updateAssignment = async (
   assignmentId: string,
   assignment: any
 ) => {
-  //console.log("updateAssignment", assignment);
   const response = await axios.put(
     `${ASSIGNMENTS_API}/${assignmentId}`,
     assignment

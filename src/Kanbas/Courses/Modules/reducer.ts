@@ -5,7 +5,6 @@ interface Module {
   _id: string;
   name: string;
   description: string;
-  // Add any other properties of a module here
 }
 
 interface ModuleState {
@@ -14,7 +13,6 @@ interface ModuleState {
 }
 
 const initialState: ModuleState = {
-  // modules: db.modules,
   modules: [],
   module: { _id: "", name: "New Module 123", description: "New Description" },
 };
