@@ -42,11 +42,11 @@ function Kanbas() {
     setCourses([...courses, response.data]);
   };
 
-  const findAllCourses = async () => {
-    const response = await axios.get(COURSES_API);
-    setCourses(response.data);
-  };
   useEffect(() => {
+    const findAllCourses = async () => {
+      const response = await axios.get(COURSES_API);
+      setCourses(response.data);
+    };
     findAllCourses();
   }, []);
 

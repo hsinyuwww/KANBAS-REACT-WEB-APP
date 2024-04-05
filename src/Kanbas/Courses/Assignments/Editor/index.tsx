@@ -7,38 +7,24 @@ import { AiFillCheckCircle } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
 import { addAssignment, setAssignment, updateAssignment } from "../reducer";
 import { KanbasState } from "../../../store";
-import * as client from "../client";
 
 function AssignmentEditor() {
-  const { assignmentId, courseId } = useParams();
+  const { assignmentId } = useParams();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const assignment = useSelector(
     (state: KanbasState) => state.assignmentsReducer.assignment
   );
-
-  const handleSave = async () => {
-    console.log("assignmentId:", assignmentId);
-
-    if (!assignmentId || !assignment) {
-      console.error("Assignment ID or assignment data is missing");
-      return;
+  const { courseId } = useParams();
+  const navigate = useNavigate();
+  const handleSave = () => {
+    if (assignmentId) {
+      console.log("updateAssignment", assignment);
+      dispatch(updateAssignment(assignment));
+    } else {
+      dispatch(addAssignment(assignment));
     }
-    console.log("Saving assignment with ID:", assignmentId);
-    console.log("Assignment data:", assignment);
-    try {
-      const updatedAssignment = await client.updateAssignment(
-        assignmentId,
-        assignment
-      );
-      console.log("Updated assignment response:", updatedAssignment);
-      dispatch(updateAssignment(updatedAssignment));
-      navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-    } catch (error) {
-      console.error("Error updating assignment:", error);
-    }
+    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
-
   return (
     <div className="wd-flex-row-container">
       <div className="wd-flex">
