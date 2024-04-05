@@ -22,6 +22,12 @@ import * as client from "./client";
 
 function ModuleList() {
   const { courseId } = useParams();
+  useEffect(() => {
+    client
+      .findModulesForCourse(courseId)
+      .then((modules) => dispatch(setModules(modules)));
+  }, [courseId]);
+  
   const moduleList = useSelector(
     (state: KanbasState) => state.modulesReducer.modules
   );
