@@ -20,6 +20,11 @@ function Kanbas() {
     endDate: "2023-12-15",
   });
 
+  const findAllCourses = async () => {
+    const response = await axios.get(COURSES_API);
+    setCourses(response.data);
+  };
+
   const updateCourse = async () => {
     const response = await axios.put(`${COURSES_API}/${course._id}`, course);
     setCourses(
@@ -43,10 +48,6 @@ function Kanbas() {
   };
 
   useEffect(() => {
-    const findAllCourses = async () => {
-      const response = await axios.get(COURSES_API);
-      setCourses(response.data);
-    };
     findAllCourses();
   }, []);
 
