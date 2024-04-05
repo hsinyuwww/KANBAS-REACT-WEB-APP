@@ -2,12 +2,10 @@ import axios from "axios";
 const COURSES_API = "http://localhost:4000/api/courses";
 const ASSIGNMENTS_API = "http://localhost:4000/api/assignments";
 
-export const updateAssignment = async (
-  assignmentId: string,
-  assignment: any
-) => {
+export const updateAssignment = async (assignment: any) => {
+  console.log("updateAssignment", assignment);
   const response = await axios.put(
-    `${ASSIGNMENTS_API}/${assignmentId}`,
+    `${ASSIGNMENTS_API}/${assignment._id}`,
     assignment
   );
   return response.data;
