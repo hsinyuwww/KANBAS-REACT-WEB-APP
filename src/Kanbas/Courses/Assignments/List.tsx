@@ -46,19 +46,14 @@ function AssignmentList() {
   };
 
   const handleDeleteAssignment = (assignmentId: string) => {
-    console.log(`Attempting to delete assignment with ID: ${assignmentId}`);
+    //console.log(`Attempting to delete assignment with ID: ${assignmentId}`);
     const shouldDelete = window.confirm(
       "Are you sure you want to delete this assignment?"
     );
-
     if (shouldDelete) {
       client
         .deleteAssignment(assignmentId)
-        .then((response) => {
-          console.log(
-            `Assignment with ID: ${assignmentId} has been deleted successfully.`,
-            response
-          );
+        .then(() => {
           dispatch(deleteAssignment(assignmentId));
         })
         .catch((error) => {
