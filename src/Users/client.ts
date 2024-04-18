@@ -11,7 +11,6 @@ export const updateUser = async (user: any) => {
   );
   return response.data;
 };
-
 export const getAllUsers = async () => {
   const response = await axiosWithCredentials.get(
     "http://localhost:4000/api/users"
