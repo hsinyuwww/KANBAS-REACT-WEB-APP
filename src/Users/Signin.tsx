@@ -14,7 +14,7 @@ export default function Signin() {
   };
   return (
     <div>
-      <h1>Signin</h1>
+      <h3>Signin</h3>
       <input
         onChange={(e) => setUser({ ...user, username: e.target.value })}
         value={user.username}
@@ -39,7 +39,7 @@ export default function Signin() {
       </button>
       <Link
         to="/Kanbas/Account/Signup"
-        className="btn btn-primary"
+        className="btn btn-warning"
         style={{ marginRight: "10px", marginTop: "5px" }}
       >
         Signup

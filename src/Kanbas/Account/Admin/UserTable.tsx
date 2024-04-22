@@ -48,7 +48,7 @@ export default function UserTable() {
   }, []);
   return (
     <div>
-      <h1>User Table</h1>
+      <h4>User Table</h4>
       <table className="table">
         <thead>
           <tr>
@@ -61,6 +61,7 @@ export default function UserTable() {
             <td>
               <input
                 value={user.username}
+                placeholder="Username"
                 onChange={(e) => setUser({ ...user, username: e.target.value })}
                 style={{
                   border: "solid #ccc",
@@ -71,6 +72,7 @@ export default function UserTable() {
               />
               <input
                 value={user.password}
+                placeholder="Password"
                 onChange={(e) => setUser({ ...user, password: e.target.value })}
                 style={{
                   border: "solid #ccc",
@@ -83,6 +85,7 @@ export default function UserTable() {
             <td>
               <input
                 value={user.firstName}
+                placeholder="First name"
                 onChange={(e) =>
                   setUser({ ...user, firstName: e.target.value })
                 }
@@ -97,6 +100,7 @@ export default function UserTable() {
             <td>
               <input
                 value={user.lastName}
+                placeholder="Last name"
                 onChange={(e) => setUser({ ...user, lastName: e.target.value })}
                 style={{
                   border: "solid #ccc",

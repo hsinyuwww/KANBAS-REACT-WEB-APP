@@ -15,7 +15,7 @@ export default function Signup() {
   };
   return (
     <div>
-      <h1>Signup</h1>
+      <h3>Signup</h3>
       <input
         onChange={(e) => setUser({ ...user, username: e.target.value })}
         value={user.username}
@@ -32,7 +32,7 @@ export default function Signup() {
         placeholder="Password"
       />
       <button
-        className="btn btn-primary"
+        className="btn btn-warning"
         onClick={signup}
         style={{ marginRight: "10px", marginTop: "5px" }}
       >

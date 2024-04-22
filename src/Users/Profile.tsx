@@ -31,10 +31,11 @@ export default function Profile() {
   }, []);
   return (
     <div>
-      <h1>Profile</h1>
-      <h2>{user.username}</h2>
+      <h4>Profile</h4>
+      <h5>Welcome, {user.username}</h5>
       <input
         onChange={(e) => setUser({ ...user, username: e.target.value })}
+        placeholder="Username"
         value={user.username}
         type="text"
         className="form-control"
@@ -43,6 +44,7 @@ export default function Profile() {
       <input
         onChange={(e) => setUser({ ...user, firstName: e.target.value })}
         value={user.firstName}
+        placeholder="First name"
         type="text"
         className="form-control"
         style={{ marginBottom: "5px" }}
@@ -50,6 +52,7 @@ export default function Profile() {
       <input
         onChange={(e) => setUser({ ...user, lastName: e.target.value })}
         value={user.lastName}
+        placeholder="Last name"
         type="text"
         className="form-control"
         style={{ marginBottom: "5px" }}
@@ -64,6 +67,7 @@ export default function Profile() {
       <input
         onChange={(e) => setUser({ ...user, email: e.target.value })}
         value={user.email}
+        placeholder="Email address"
         type="text"
         className="form-control"
         style={{ marginBottom: "5px" }}
@@ -80,23 +84,31 @@ export default function Profile() {
       <br />
 
       <button
-        className="btn btn-primary"
+        className="btn btn-success"
         onClick={updateUser}
         style={{ marginRight: "20px" }}
       >
         Save
       </button>
-
-      <Link to="/Kanbas/Account/Admin" className="btn btn-warning">
-        Users
-      </Link>
-
-      <pre>
-        <code>{JSON.stringify(user, null, 2)}</code>
-      </pre>
-      <button className="btn btn-danger" onClick={signout}>
+      <button
+        className="btn btn-danger"
+        onClick={signout}
+        style={{ marginRight: "20px" }}
+      >
         Signout
       </button>
+
+      <Link
+        to="/Kanbas/Account/Admin"
+        className="btn btn-info"
+        style={{ marginLeft: "20px" }}
+      >
+        All Users
+      </Link>
+
+      {/* <pre>
+        <code>{JSON.stringify(user, null, 2)}</code>
+      </pre> */}
     </div>
   );
 }
